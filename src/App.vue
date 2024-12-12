@@ -3,7 +3,7 @@ import { ref } from "vue";
 import Header from './components/Header.vue';
 import Aside from './components/Aside.vue';
 import PageFooter from './components/PageFooter.vue';
-import login from "./components/login.vue";
+import login from "./components/Login.vue";
 
 const title = ref("档案管理");
 const isLogin = ref(false);
