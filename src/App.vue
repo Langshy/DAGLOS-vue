@@ -3,6 +3,7 @@ import { ref,reactive } from "vue";
 import Header from './components/Header.vue';
 import Aside from './components/Aside.vue';
 import PageFooter from './components/PageFooter.vue';
+import { ElMessageBox } from 'element-plus';
 // import login from "./components/Login.vue";
 
 const title = ref("档案管理");
@@ -24,7 +25,11 @@ const loginLoad = ref(false);
 //登录
 const onSubmit = () => {
     loginLoad.value = true;
-    isLogin.value = true;
+    ElMessageBox.alert('账号不存在或者密码输入错误', '提示', {
+    confirmButtonText: '好的',
+  })
+  loginLoad.value = false;
+    // isLogin.value = true;
     console.log(isLogin.value)
 }
 </script>
