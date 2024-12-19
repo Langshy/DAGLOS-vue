@@ -3,11 +3,15 @@ import { ref,reactive } from "vue";
 import Header from './components/Header.vue';
 import Aside from './components/Aside.vue';
 import PageFooter from './components/PageFooter.vue';
-import { ElMessageBox } from 'element-plus';
+import { ElMessage } from 'element-plus';
 // import login from "./components/Login.vue";
+
+import { provide } from 'vue';
 
 const title = ref("档案管理");
 const isLogin = ref(false);
+provide('isLogin',isLogin);
+
 console.log(isLogin);
 
 
@@ -24,12 +28,15 @@ const loginLoad = ref(false);
 
 //登录
 const onSubmit = () => {
-    loginLoad.value = true;
-    ElMessageBox.alert('账号不存在或者密码输入错误', '提示', {
-    confirmButtonText: '好的',
+    //loginLoad.value = true;
+    //密码错误
+    ElMessage.error('账号或密码输入错误！')
+    //密码正确
+    ElMessage({
+      message: '登录成功！',
+      type: 'success',
   })
-  loginLoad.value = false;
-    // isLogin.value = true;
+    isLogin.value = true;
     console.log(isLogin.value)
 }
 </script>
@@ -53,8 +60,8 @@ const onSubmit = () => {
   <div v-else>
     <div class="item-back">
         <el-row :gutter="20">
-            <el-col :span="8" :offset="8">
-                <div class="grid-content ep-bg-purple item-box" :style="{boxShadow:dark}">
+            <el-col :span="12" :offset="7">
+              <div class="grid-content ep-bg-purple item-box" :style="{boxShadow:dark}">
                     <h1 class="loginTitle">档案管理系统</h1>
                     <div class="loginForm">
                         <el-form :model="form" label-width="auto" style="max-width: 600px">
@@ -71,7 +78,7 @@ const onSubmit = () => {
                             </el-form-item>
                         </el-form>
                     </div>
-                </div>
+              </div>
             </el-col>
         </el-row>
     </div>

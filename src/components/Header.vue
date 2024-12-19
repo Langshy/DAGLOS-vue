@@ -17,7 +17,7 @@
       <template #title>更多</template>
       <el-menu-item index="2-1">添加用户</el-menu-item>
       <el-menu-item index="2-2">搜索</el-menu-item>
-      <el-menu-item index="2-3">登出</el-menu-item>
+      <el-menu-item index="loginOut">登出</el-menu-item>
       <el-sub-menu index="2-4">
         <template #title>item four</template>
         <el-menu-item index="2-4-1">item one</el-menu-item>
@@ -29,11 +29,22 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { fa } from 'element-plus/es/locale';
+import { inject, ref } from 'vue'
+
+const isLogin = inject('isLogin');
 
 const activeIndex = ref('1')
-const handleSelect = (key: string, keyPath: string[]) => {
-  console.log(key, keyPath)
+const handleSelect = (key: string) => {
+  console.log(key)
+  switch(key){
+    case 'loginOut':
+      isLogin.value =false;
+      break;
+    default:
+      break;
+  }
+
 }
 const input = ref('')
 </script>
