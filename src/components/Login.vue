@@ -22,7 +22,7 @@ const onSubmit = () => {
       message: '登录成功！',
       type: 'success',
   })
-  window.location.href='/'
+//   window.location.href='/'
 }
 
 </script>
@@ -30,9 +30,11 @@ const onSubmit = () => {
  <!-- 登录 -->
  <div class="item-back">
         <el-row :gutter="20">
-            <el-col :span="12" :offset="7">
-              <div class="grid-content ep-bg-purple item-box" :style="{boxShadow:dark}">
-                    <h1 class="loginTitle">档案管理系统</h1>
+            <el-col :span="15" :offset="13">
+              <div class="grid-content ep-bg-purple item-box">
+                    <div class="loginTitle">
+                        <span>账号登录</span>
+                    </div>
                     <div class="loginForm">
                         <el-form :model="form" label-width="auto" style="max-width: 600px">
                             <span slot="label">
@@ -72,25 +74,23 @@ const onSubmit = () => {
 }
 
 .item-box{
-    height: 400px;
-    width: 600px;
+    height: 350px;
+    width: 550px;
     margin-top: 20%;
     background-color: white;
-    /* border: 1px solid black; */
     border-radius: 20px !important;
 }
 
 .loginTitle{
     text-align: center;
     padding-top: 50px;
-    font-size: 50px;
-
+    font-size: 25px;
 }
 .loginForm{
     width: 450px;
     height: 200px;
     margin: auto;
-    margin-top: 50px;
+    margin-top: 10px;
 
 }
 

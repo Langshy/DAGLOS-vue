@@ -1,27 +1,17 @@
 <template>
-    <el-affix position="bottom" :offset="20">
-      <el-row>
-        <el-col :span="24"><div class="grid-content ep-bg-purple-dark" /></el-col>
-      </el-row>
-    </el-affix>
-  </template>
+  <div class="text-center text-gray-500 text-sm footer">
+    <div class="text-gray-500 text-sm">被征地农民工档案管理</div>
+    <div class="text-gray-500 text-sm">© 2025</div>
+    <div class="text-gray-500 text-sm">Powered by Lanshy</div>
+  </div>
+</template>
 
-  <style>
-  .el-footer{
-    background-color: antiquewhite;
-  }
-  .el-row {
-    margin-bottom: 20px;
-  }
-  .el-row:last-child {
-    margin-bottom: 0;
-  }
-  .el-col {
-    border-radius: 4px;
-  }
-  
-  .grid-content {
-    border-radius: 4px;
-    min-height: 36px;
-  }
-  </style>
+<style scoped>  
+.footer {
+  border-top: 1px solid var(--el-border-color);
+  color: var(--el-text-color-secondary);
+  text-align: center;
+  size: 20px;
+  padding-top: 5px;
+}
+</style>

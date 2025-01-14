@@ -2,6 +2,7 @@
 import { ref,reactive,computed } from "vue";
 import Header from './components/Header.vue';
 import Aside from './components/Aside.vue';
+import PageFooter from "./components/PageFooter.vue";
 import router from "./router.js";
 
 //路由跳转
@@ -19,10 +20,15 @@ const title = ref("档案管理");
     <el-container>
       <el-header><Header/></el-header>
       <el-container>
-        <el-aside width="200px" :style="{ height: contentHeight + 'px' }"><Aside/></el-aside>
-        <el-main>
-          <RouterView></RouterView>
-        </el-main>
+        <el-aside width="200px" :style="{ height: contentHeight + 'px' }" class="aside_border"><Aside/></el-aside>
+        <el-container>
+          <el-main>
+            <RouterView></RouterView>
+          </el-main>
+        <el-footer>
+          <PageFooter/>
+        </el-footer>
+        </el-container>
       </el-container>
     </el-container>
   </div>
@@ -53,3 +59,17 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.el-aside{
+  border-right: 1px solid var(--el-border-color);
+  padding: 0%;
+}
+.el-footer{
+  height: 80px;
+  padding: 0%;
+}
+.el-header{
+  padding: 0%;
+}
+</style>

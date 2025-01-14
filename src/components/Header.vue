@@ -34,9 +34,9 @@ const input = ref('')
     :ellipsis="false"
     @select="handleSelect"
   >
-    <el-menu-item index="home">首页</el-menu-item>
+    <el-menu-item index="home">被征地农民工档案管理</el-menu-item>
     <el-menu-item>
-      <el-input v-model="input" style="width: 240px" placeholder="请输姓名或身份证号" clearable/>
+      <el-input v-model="input" style="width: 240px" placeholder="请输姓名或身份证号搜索信息" clearable/>
     </el-menu-item>
     <el-menu-item index="2">
       <span>陈汝乾</span>
