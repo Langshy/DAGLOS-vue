@@ -2,7 +2,9 @@
 import { ref } from 'vue'
 import { RouterLink } from 'vue-router';
 import router from "../router.js";
+import { useCookies } from "vue3-cookies";
 
+const  { cookies }  = useCookies();
 //路由跳转
 const routerChange = (n) =>{
   router.push(n);
@@ -16,7 +18,9 @@ const handleSelect = (key) => {
       routerChange("/")
       break;
     case 'loginOut':
-      routerChange("/login")
+      cookies.remove('login');
+      routerChange("/")
+      location.reload();
       break;
     case 'register':
       routerChange("/register")

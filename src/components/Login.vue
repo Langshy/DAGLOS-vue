@@ -22,7 +22,7 @@ const onSubmit = () => {
       message: '登录成功！',
       type: 'success',
   })
-//   window.location.href='/'
+  window.location.href='/'
 }
 
 </script>
