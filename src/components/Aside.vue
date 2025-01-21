@@ -3,20 +3,20 @@
     <el-col :span="24">
       <el-menu default-active="overView" class="el-menu-vertical-demo" @select="handleSelect">
         <el-menu-item index="overView">
-          <el-icon><icon-menu /></el-icon>
+          <el-icon><Menu /></el-icon>
           <span>首页概览</span>
         </el-menu-item>
         <el-sub-menu index="fileManagement">
           <template #title>
-            <el-icon><document /></el-icon>
+            <el-icon><Files /></el-icon>
             <span>档案管理</span>
           </template>
-          <el-menu-item-group title="被征地农民档案管理">
-            <el-menu-item index="fileManagement_1">档案总览</el-menu-item>
-          </el-menu-item-group>
+          <el-menu-item index="fileManagement_1">档案总览</el-menu-item>
           <el-sub-menu index="fileManagement_2">
-            <template #title>item four</template>
-            <el-menu-item index="fileManagement_2_1">item one</el-menu-item>
+            <template #title>档案操作</template>
+            <el-menu-item index="fileManagement_2_1">查询档案</el-menu-item>
+            <el-menu-item index="fileManagement_2_2">添加户籍</el-menu-item>
+            <el-menu-item index="fileManagement_2_3">档案修改</el-menu-item>
           </el-sub-menu>
         </el-sub-menu>
         <el-menu-item index="setUp">
@@ -29,12 +29,6 @@
 </template>
 
 <script lang="js" setup>
-import {
-  Document,
-  Menu as IconMenu,
-  Location,
-  Setting,
-} from '@element-plus/icons-vue'
 import router from "../router.js";
 
 
