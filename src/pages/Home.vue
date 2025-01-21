@@ -1,3 +1,3 @@
 <template>
-    主页
+首页
 </template>
