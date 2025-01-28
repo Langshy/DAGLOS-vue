@@ -17,6 +17,16 @@
                 <el-form-item label="确认密码：" prop="checkPass">
                     <el-input v-model="ruleForm.checkPass" type="password" autocomplete="off" />
                 </el-form-item>
+                <el-form-item label="账户类型" prop="optionsType">
+                    <el-select v-model="ruleForm.optionsType" placeholder="请选择">
+                        <el-option label="管理员" value="1" />
+                        <el-option label="操作员" value="2" />
+                    </el-select>
+                </el-form-item>
+                <el-form-item>
+                    <el-transfer v-model="ruleForm.options" :data="optionsData" :titles="['权限列表', '已有权限']" :filterable="true"
+                        :filter-placeholder="'请输入搜索内容'"/>
+                </el-form-item>
                 <el-form-item style="margin-left: 40%;">
                     <el-button type="primary" @click="submitForm(ruleFormRef)">
                         注册
@@ -67,6 +77,8 @@ const ruleForm = reactive({
     name: '',
     pass: '',
     checkPass: '',
+    optionsType: '',
+    options: [],
 })
 
 const rules = reactive<FormRules<typeof ruleForm>>({
@@ -80,6 +92,7 @@ const submitForm = (formEl: FormInstance | undefined) => {
     formEl.validate((valid) => {
         if (valid) {
             console.log('submit!')
+            console.log(ruleForm)
         } else {
             console.log('error submit!')
         }
@@ -90,10 +103,25 @@ const resetForm = (formEl: FormInstance | undefined) => {
     if (!formEl) return
     formEl.resetFields()
 }
+
+//定义权限
+interface Option {
+    key: number
+    label: string
+    disabled: boolean
+}
+const optionsData = ref<Option[]>([
+    { key: 101, label: '添加户', disabled: false },
+    { key: 102, label: '资料上传', disabled: false },
+    { key: 103, label: '资料修改', disabled: false },
+    { key: 104, label: '用户添加', disabled: false },
+])
+
+
 </script>
 
 <style scoped>
 .el-row {
-    padding-top: 150px;
+    padding-top: 50px;
 }
 </style>
