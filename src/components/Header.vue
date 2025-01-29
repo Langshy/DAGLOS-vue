@@ -22,8 +22,6 @@ const handleSelect = (key) => {
       routerChange("/")
       location.reload();
       break;
-    case 'register':
-      routerChange("/register")
     default:
       break;
   }
@@ -42,9 +40,6 @@ const input = ref('')
     </el-menu-item>
     <el-sub-menu index="3">
       <template #title>更多</template>
-      <el-menu-item index="register">
-        <RouterLink index="register">添加用户</RouterLink>
-      </el-menu-item>
       <el-menu-item index="loginOut">登出</el-menu-item>
     </el-sub-menu>
   </el-menu>
