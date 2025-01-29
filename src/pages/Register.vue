@@ -111,9 +111,9 @@ interface Option {
     disabled: boolean
 }
 const optionsData = ref<Option[]>([
-    { key: 101, label: '添加户', disabled: false },
-    { key: 102, label: '资料上传', disabled: false },
-    { key: 103, label: '资料修改', disabled: false },
+    { key: 101, label: '档案查询', disabled: false },
+    { key: 102, label: '户籍添加', disabled: false },
+    { key: 103, label: '档案修改', disabled: false },
     { key: 104, label: '用户添加', disabled: false },
 ])
 
