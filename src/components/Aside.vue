@@ -55,7 +55,7 @@ const handleSelect = (key) => {
       routerChange("/")
       break;
     case 'fileManagement_1':
-      routerChange("/files")
+      routerChange("/Archive")
       break;
     case 'fileManagement_2_1':
       routerChange("/")
