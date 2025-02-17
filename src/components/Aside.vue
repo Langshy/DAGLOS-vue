@@ -18,7 +18,7 @@
           <el-menu-item index="fileManagement_1">档案总览</el-menu-item>
           <el-sub-menu index="fileManagement_2">
             <template #title>档案操作</template>
-            <el-menu-item index="fileManagement_2_1">查询档案</el-menu-item>
+            <el-menu-item index="fileManagement_2_1">档案添加</el-menu-item>
             <el-menu-item index="fileManagement_2_2">添加户籍</el-menu-item>
             <el-menu-item index="fileManagement_2_3">档案修改</el-menu-item>
           </el-sub-menu>

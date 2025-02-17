@@ -83,7 +83,7 @@ const onSubmit = () => {
             <el-col :span="15" :offset="13">
               <div class="grid-content ep-bg-purple item-box">
                     <div class="loginTitle">
-                        <span>账号登录</span>
+                        <span>登录</span>
                     </div>
                     <div class="loginForm">
                         <el-form :model="form" label-width="auto" style="max-width: 600px">

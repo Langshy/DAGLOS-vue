@@ -1,7 +1,7 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import Home from "./pages/Home.vue"
 import Register from "./pages/register/Register.vue";
-import Archive from "./pages/file/Archive.vue";
+import Archive from "./pages/archives/Archive.vue";
 import registerList from "./pages/register/registerList.vue";
 import registerOptions from "./pages/register/registerOptions.vue";
 
