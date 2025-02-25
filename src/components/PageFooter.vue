@@ -1,8 +1,6 @@
 <template>
   <div class="text-center text-gray-500 text-sm footer">
-    <div class="text-gray-500 text-sm">被征地农民工档案管理</div>
-    <div class="text-gray-500 text-sm">© 2025</div>
-    <div class="text-gray-500 text-sm">Powered by Lanshy</div>
+    <div class="text-gray-500 text-sm">被征地农民工档案管理© 2025</div>
   </div>
 </template>
 

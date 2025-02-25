@@ -69,22 +69,20 @@
     </el-table-column>
   </el-table>
   <div class="pagination">
-    <el-pagination
-      v-model:current-page="pages"
-      v-model:page-size="pageSize"
-      :page-sizes="[10,20, 50, 100]"
-      :size="size"
-      :disabled="false"
-      :background="true"
-      layout="total, sizes, prev, pager, next, jumper"
-      :total="total"
-      :hide-on-single-page="true"
-    />
+    <el-config-provider :locale="language">
+      <el-pagination v-model:current-page="pages" v-model:page-size="pageSize" :page-sizes="[10, 20, 50, 100]"
+        :size="size" :disabled="false" :background="true" layout="total, sizes, prev, pager, next, jumper"
+        :total="total" :hide-on-single-page="true" />
+    </el-config-provider>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
+import zhCn from 'element-plus/dist/locale/zh-cn'
+
+//设置中文
+const language = computed(() => (zhCn))
 
 const pages = ref(1)
 const pageSize = ref(10)

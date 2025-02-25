@@ -22,6 +22,9 @@ const handleSelect = (key) => {
       routerChange("/")
       location.reload();
       break;
+    case 'user':
+      routerChange("/userPage")
+      break;
     default:
       break;
   }
@@ -40,6 +43,7 @@ const input = ref('')
     </el-menu-item>
     <el-sub-menu index="3">
       <template #title>更多</template>
+      <el-menu-item index="user">个人中心</el-menu-item>
       <el-menu-item index="loginOut">登出</el-menu-item>
     </el-sub-menu>
   </el-menu>
