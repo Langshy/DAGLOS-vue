@@ -15,10 +15,10 @@
             </el-icon>
             <span>档案管理</span>
           </template>
-          <el-menu-item index="fileManagement_1">档案总览</el-menu-item>
+          <el-menu-item index="archive">档案总览</el-menu-item>
           <el-sub-menu index="fileManagement_2">
             <template #title>档案操作</template>
-            <el-menu-item index="fileManagement_2_1">档案添加</el-menu-item>
+            <el-menu-item index="archiveAdd">档案添加</el-menu-item>
             <el-menu-item index="fileManagement_2_2">添加户籍</el-menu-item>
             <el-menu-item index="fileManagement_2_3">档案修改</el-menu-item>
           </el-sub-menu>
@@ -58,10 +58,13 @@ const handleSelect = (key) => {
   console.log(key)
   switch (key) {
     case 'overView':
-      routerChange("/")
+      routerChange("/index")
       break;
-    case 'fileManagement_1':
-      routerChange("/Archive")
+    case 'archive':
+      routerChange("/Archive/index")
+      break;
+    case 'archiveAdd':
+      routerChange("/Archive/add")
       break;
     case 'fileManagement_2_1':
       routerChange("/")

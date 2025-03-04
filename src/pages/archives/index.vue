@@ -1,42 +1,42 @@
 <template>
   <!-- 导航条 -->
   <el-breadcrumb separator="/">
-    <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+    <el-breadcrumb-item :to="{ path: '/index' }">首页</el-breadcrumb-item>
     <el-breadcrumb-item>档案总览</el-breadcrumb-item>
   </el-breadcrumb>
   <el-table v-loading="loading" :data="tableData" border style="width: 100%;margin-top: 20px;">
     <el-table-column label="序号" width="100" align="center">
       <template #default="scope">
         <div style="align-items: center">
-          <span>{{ scope.row.serialNumber }}</span>
+          <span>{{ scope.row.serial_number }}</span>
         </div>
       </template>
     </el-table-column>
-    <el-table-column label="姓名" width="150" align="center">
+    <el-table-column label="户主姓名" width="150" align="center">
       <template #default="scope">
         <div style="align-items: center">
-          <span>{{ scope.row.name }}</span>
+          <span>{{ scope.row.household_name }}</span>
         </div>
       </template>
     </el-table-column>
-    <el-table-column label="性别" width="150" align="center">
+    <el-table-column label="户籍编号" width="150" align="center">
       <template #default="scope">
         <div style="align-items: center">
-          <span>{{ scope.row.sex }}</span>
+          <span>{{ scope.row. registered_residence_number}}</span>
         </div>
       </template>
     </el-table-column>
-    <el-table-column label="身份证号" width="250" align="center">
+    <el-table-column label="家庭户籍人口总数" width="200" align="center">
       <template #default="scope">
         <div style="align-items: center">
-          <span>{{ scope.row.IDnumber }}</span>
+          <span>{{ scope.row.total_registered_residence_population}}</span>
         </div>
       </template>
     </el-table-column>
-    <el-table-column label="户籍" width="150" align="center">
+    <el-table-column label="联系电话" width="150" align="center">
       <template #default="scope">
         <div style="align-items: center">
-          <span>{{ scope.row.domicile }}</span>
+          <span>{{ scope.row.contact_number }}</span>
         </div>
       </template>
     </el-table-column>
@@ -92,18 +92,18 @@ const total = 100
 const loading = ref(false)  // 加载状态
 
 interface User {
-  serialNumber: number
-  name: string
-  sex: string
-  IDnumber: string
-  domicile: string
+  serial_number: number
+  household_name: string
+  registered_residence_number: string
+  total_registered_residence_population: string
+  contact_number: string
   town: string
   village: string
   detailedAddress: string
 }
 
 const handleEdit = (index: number, row: User) => {
-  console.log(index, row)
+  console.log(index, row) 
 }
 const handleDelete = (index: number, row: User) => {
   console.log(index, row)
@@ -111,106 +111,15 @@ const handleDelete = (index: number, row: User) => {
 
 const tableData: User[] = [
   {
-    serialNumber: 1,
-    name: 'Mona',
-    sex: '女',
-    IDnumber: '123456789012345678',
-    domicile: '广东省',
+    serial_number: 1,
+    household_name: 'Mona',
+    registered_residence_number: '0110001',
+    total_registered_residence_population: '3',
+    contact_number: '131111111',
     town: '广州市',
     village: '白云区',
     detailedAddress: '白云区白云大道123号'
   },
-  {
-    serialNumber: 2,
-    name: 'Mona',
-    sex: '女',
-    IDnumber: '123456789012345678',
-    domicile: '广东省',
-    town: '广州市',
-    village: '白云区',
-    detailedAddress: '白云区白云大道123号'
-  },
-  {
-    serialNumber: 3,
-    name: 'Mona',
-    sex: '女',
-    IDnumber: '123456789012345678',
-    domicile: '广东省',
-    town: '广州市',
-    village: '白云区',
-    detailedAddress: '白云区白云大道123号'
-  },
-  {
-    serialNumber: 4,
-    name: 'Mona',
-    sex: '女',
-    IDnumber: '123456789012345678',
-    domicile: '广东省',
-    town: '广州市',
-    village: '白云区',
-    detailedAddress: '白云区白云大道123号'
-  },
-  {
-    serialNumber: 5,
-    name: 'Mona',
-    sex: '女',
-    IDnumber: '123456789012345678',
-    domicile: '广东省',
-    town: '广州市',
-    village: '白云区',
-    detailedAddress: '白云区白云大道123号'
-  },
-  {
-    serialNumber: 6,
-    name: 'Mona',
-    sex: '女',
-    IDnumber: '123456789012345678',
-    domicile: '广东省',
-    town: '广州市',
-    village: '白云区',
-    detailedAddress: '白云区白云大道123号'
-  },
-  {
-    serialNumber: 7,
-    name: 'Mona',
-    sex: '女',
-    IDnumber: '123456789012345678',
-    domicile: '广东省',
-    town: '广州市',
-    village: '白云区',
-    detailedAddress: '白云区白云大道123号'
-  },
-  {
-    serialNumber: 8,
-    name: 'Mona',
-    sex: '女',
-    IDnumber: '123456789012345678',
-    domicile: '广东省',
-    town: '广州市',
-    village: '白云区',
-    detailedAddress: '白云区白云大道123号'
-  },
-  {
-    serialNumber: 9,
-    name: 'Mona',
-    sex: '女',
-    IDnumber: '123456789012345678',
-    domicile: '广东省',
-    town: '广州市',
-    village: '白云区',
-    detailedAddress: '白云区白云大道123号'
-  },
-  {
-    serialNumber: 10,
-    name: 'Mona',
-    sex: '女',
-    IDnumber: '123456789012345678',
-    domicile: '广东省',
-    town: '广州市',
-    village: '白云区',
-    detailedAddress: '白云区白云大道123号'
-  },
-
 ]
 </script>
 <style scoped>

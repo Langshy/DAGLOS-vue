@@ -51,7 +51,7 @@ const onSubmit = () => {
     message: '登录成功！',
     type: 'success',
   })
-  routerChange('/');
+  routerChange('/index');
   setLogin(loginKey, token.value);
   loginType.value = true;
 }

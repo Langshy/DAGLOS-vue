@@ -15,7 +15,7 @@ const handleSelect = (key) => {
   console.log(key)
   switch (key) {
     case 'home':
-      routerChange("/")
+      routerChange("/index")
       break;
     case 'loginOut':
       cookies.remove('login');
