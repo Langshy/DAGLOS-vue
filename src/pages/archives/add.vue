@@ -1,12 +1,12 @@
 <!-- 添加档案 -->
 <script setup>
-import { computed , reactive } from 'vue'
+import { computed, reactive } from 'vue'
 import zhCn from 'element-plus/dist/locale/zh-cn'
 import router from "../../router.js";
 
 //路由跳转
 const routerChange = (n) => {
-  router.push(n);
+    router.push(n);
 }
 
 //设置中文
@@ -43,16 +43,22 @@ const form = reactive({
 })
 
 const handleChange = (value) => {
-  console.log(value)
-  form.town = value[0]
-  form.village = value[1]
+    console.log(value)
+    form.town = value[0]
+    form.village = value[1]
 }
 
 const onSubmit = () => {
     console.log('submit!')
+    console.log(form)
     const id = 'mx12345'
-    const url = 'details/'+id
+    const url = 'details/' + id
     routerChange(url);
+}
+
+const cancel = () => {
+    console.log('cancel!')
+    router.go(0)
 }
 </script>
 <template>
@@ -73,7 +79,7 @@ const onSubmit = () => {
             </el-form-item>
             <el-form-item label="详细地址">
                 <el-input v-model="form.address_of_requisitioned_land" />
-            </el-form-item> 
+            </el-form-item>
             <el-form-item label="原有承包（亩）">
                 <el-input v-model="form.original_contracted_farmland" />
             </el-form-item>
@@ -81,7 +87,7 @@ const onSubmit = () => {
                 <el-input v-model="form.total_requisitioned_cultivated_land" />
             </el-form-item>
             <el-form-item label="现有承包耕地（亩）">
-                <el-input v-model="form.current_contracted_cultivated_land" />  
+                <el-input v-model="form.current_contracted_cultivated_land" />
             </el-form-item>
             <el-form-item label="家庆户籍人口总数">
                 <el-input v-model="form.total_registered_residence_population" />
@@ -93,17 +99,18 @@ const onSubmit = () => {
                 <el-input v-model="form.approved_land_requisition_department" />
             </el-form-item>
             <el-form-item label="批准征地时间">
-                <el-date-picker v-model="form.approval_time_for_land_acquisition" type="date" placeholder="选择日期" /> 
+                <el-date-picker v-model="form.approval_time_for_land_acquisition" type="date" placeholder="选择日期"
+                    format="YYYY-MM-DD" value-format="x" />
             </el-form-item>
             <el-form-item label="联系电话">
                 <el-input v-model="form.contact_number" />
             </el-form-item>
             <el-form-item label="被征地项目名称">
-                <el-input v-model="form.name_of_land_acquisition_project" />    
+                <el-input v-model="form.name_of_land_acquisition_project" />
             </el-form-item>
             <el-form-item>
                 <el-button type="primary" @click="onSubmit">添加</el-button>
-                <el-button>取消</el-button>
+                <el-button @click="cancel">取消</el-button>
             </el-form-item>
         </el-form>
     </div>

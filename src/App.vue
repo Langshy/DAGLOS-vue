@@ -86,6 +86,9 @@ const onSubmit = () => {
   <!-- 登录 -->
   <div v-else class="item-back">
     <el-row :gutter="20">
+      <div class="logo">
+          <img src="/public/logo.png" style="height: 150px;margin-top: 20px;margin-left: 20px;">
+        </div>
       <el-col :span="15" :offset="13">
         <div class="grid-content ep-bg-purple item-box">
           <div class="loginTitle">
@@ -221,5 +224,11 @@ export default {
   margin: 10px;
   background-color: white;
   border-radius: 10px;
+}
+.logo{
+  text-align: center;
+  margin-top: 50px;
+  margin-left: 50px;
+  position: absolute;
 }
 </style>

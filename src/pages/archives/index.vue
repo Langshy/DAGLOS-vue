@@ -12,6 +12,13 @@
         </div>
       </template>
     </el-table-column>
+    <el-table-column label="户籍编号" width="100" align="center">
+      <template #default="scope">
+        <div style="align-items: center">
+          <span>{{ scope.row.id }}</span>
+        </div>
+      </template>
+    </el-table-column>
     <el-table-column label="户主姓名" width="150" align="center">
       <template #default="scope">
         <div style="align-items: center">
@@ -63,8 +70,7 @@
     </el-table-column>
     <el-table-column label="选项" fixed="right" width="150" align="center">
       <template #default="scope">
-        <el-button size="small" @click="handleEdit(scope.$index, scope.row)">修改</el-button>
-        <el-button size="small" type="danger" @click="handleDelete(scope.$index, scope.row)">删除</el-button>
+        <el-button size="small" @click="handleEdit(scope.$index, scope.row)">查看</el-button>
       </template>
     </el-table-column>
   </el-table>
@@ -93,6 +99,7 @@ const loading = ref(false)  // 加载状态
 
 interface User {
   serial_number: number
+  id: string
   household_name: string
   registered_residence_number: string
   total_registered_residence_population: string
@@ -103,15 +110,13 @@ interface User {
 }
 
 const handleEdit = (index: number, row: User) => {
-  console.log(index, row) 
-}
-const handleDelete = (index: number, row: User) => {
-  console.log(index, row)
+  console.log(row['id']) 
 }
 
 const tableData: User[] = [
   {
     serial_number: 1,
+    id:"MX0001",
     household_name: 'Mona',
     registered_residence_number: '0110001',
     total_registered_residence_population: '3',
