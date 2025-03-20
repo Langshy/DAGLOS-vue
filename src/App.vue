@@ -1,5 +1,5 @@
 <script setup>
-import { ref, reactive } from "vue";
+import { ref, reactive, inject } from "vue";
 import Header from './components/Header.vue';
 import Aside from './components/Aside.vue';
 import PageFooter from "./components/PageFooter.vue";
@@ -7,16 +7,11 @@ import PageFooter from "./components/PageFooter.vue";
 import router from "./router.js";
 import { useCookies } from "vue3-cookies";
 import { ElMessage } from 'element-plus';
-
-//路由跳转
-const routerChange = (n) => {
-  router.push(n);
-}
+import axios from 'axios';
 
 //登录状态
 const loginKey = 'login';
-const loginType = ref(false);
-const token = ref('ee7cc3744c86c7678ce8e966c562e7ae');
+const loginType = ref(true);
 const { cookies } = useCookies();
 
 //设置登录状态
@@ -31,8 +26,27 @@ const getLogin = (key) => {
 }
 
 //判断是否登录
-if (getLogin(loginKey) == token.value) {
+if (getLogin(loginKey)) {
+  //身份验证
+  axios({
+    method:'post',
+    url:'http://api.daglos.com/action/isLoginAction.php',
+    data:{
+      token: getLogin(loginKey)
+    },
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+  }).then((response) => {
+    if (response.data.code == 200) {
+      loginType.value = true;
+    } else {
+      loginType.value = false;
+    }
+  }).catch((error) => {
+    console.log(error);
+  })
   loginType.value = true;
+}else{
+  loginType.value = false;
 }
 // 定义登录账号和密码
 const form = reactive({
@@ -40,20 +54,37 @@ const form = reactive({
   passwd: '',
 })
 
+//登录加载
 const loginLoad = ref(false);
 //登录
 const onSubmit = () => {
-  //loginLoad.value = true;
-  //密码错误
-  // ElMessage.error('账号或密码输入错误！')
-  //密码正确
-  ElMessage({
-    message: '登录成功！',
-    type: 'success',
+  loginLoad.value = true;
+  // 发送 JSON 格式
+  axios({
+    method: 'post',
+    url: 'http://api.daglos.com/action/loginAction.php',
+    data: {
+      username: form.username,
+      passwd: form.passwd
+    } ,
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+  }).then((response) => {
+    console.log(response);
+    if (response.data.code == 200) {
+      ElMessage({
+        message: response.data.msg,
+        type: 'success',
+      })
+      setLogin(loginKey, response.data.token);
+      loginType.value = true;
+    } else {
+      ElMessage.error(response.data.msg)
+    }
+  }).catch((error) => {
+    console.log(error);
+  }).finally(() => {
+    loginLoad.value = false;
   })
-  routerChange('/index');
-  setLogin(loginKey, token.value);
-  loginType.value = true;
 }
 
 </script>
@@ -87,8 +118,8 @@ const onSubmit = () => {
   <div v-else class="item-back">
     <el-row :gutter="20">
       <div class="logo">
-          <img src="/public/logo.png" style="height: 150px;margin-top: 20px;margin-left: 20px;">
-        </div>
+        <img src="/public/logo.png" style="height: 150px;margin-top: 20px;margin-left: 20px;">
+      </div>
       <el-col :span="15" :offset="13">
         <div class="grid-content ep-bg-purple item-box">
           <div class="loginTitle">
@@ -225,7 +256,8 @@ export default {
   background-color: white;
   border-radius: 10px;
 }
-.logo{
+
+.logo {
   text-align: center;
   margin-top: 50px;
   margin-left: 50px;

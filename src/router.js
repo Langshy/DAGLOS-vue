@@ -10,7 +10,9 @@ import userPage from "./pages/user/index.vue";
 
 
 const routes = [
+    { path: "/", component: Home },
     { path: "/index", component: Home },
+    { path: "/login", component: Home },
     { path: "/register", component: Register },
     { path: "/Archive/index", component: Archive },
     { path: "/Archive/add", component: ArchiveAdd },
