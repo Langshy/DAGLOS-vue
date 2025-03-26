@@ -27,10 +27,12 @@ const getLogin = (key) => {
 
 //判断是否登录
 if (getLogin(loginKey)) {
+  const apiUrl = `${import.meta.env.VITE_API_BASE_URL}/action/isLoginAction.${import.meta.env.VITE_API_BASE_URL_TYPE}`;
   //身份验证
   axios({
     method:'post',
-    url:'http://api.daglos.com/action/isLoginAction.php',
+    // url:'http://localhost/action/isLoginAction.php',
+    url: apiUrl,
     data:{
       token: getLogin(loginKey)
     },
@@ -57,12 +59,14 @@ const form = reactive({
 //登录加载
 const loginLoad = ref(false);
 //登录
+const apiUrl = `${import.meta.env.VITE_API_BASE_URL}/action/loginAction.${import.meta.env.VITE_API_BASE_URL_TYPE}`;
 const onSubmit = () => {
   loginLoad.value = true;
   // 发送 JSON 格式
   axios({
     method: 'post',
-    url: 'http://api.daglos.com/action/loginAction.php',
+    // url: 'http://localhost/action/loginAction.php',
+    url: apiUrl,
     data: {
       username: form.username,
       passwd: form.passwd

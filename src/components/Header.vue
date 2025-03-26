@@ -14,10 +14,12 @@ const routerChange = (n) => {
 //登录信息
 const token = cookies.get('login');
 const  name = ref('admin')
+const apiUrl = `${import.meta.env.VITE_API_BASE_URL}/action/header/getUserInfoAction.${import.meta.env.VITE_API_BASE_URL_TYPE}`;
 if (token) {
   axios({
     method:'post',
-    url:'http://api.daglos.com/action/header/getUserInfoAction.php',
+    // url:'http://api.daglos.com/action/header/getUserInfoAction.php',
+    url: apiUrl,
     data:{
       token: token
     },
