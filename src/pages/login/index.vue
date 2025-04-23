@@ -135,10 +135,11 @@ const onSubmit = () => {
       window.location.href = '/';
     } else {
       ElMessage.error(response.data.msg)
-      loginLoad.value = false;
     }
   }).catch((error) => {
     console.log(error);
+  }).finally(() => {
+    loginLoad.value = false;
   })
 }
 

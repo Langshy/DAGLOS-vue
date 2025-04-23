@@ -95,12 +95,12 @@ const submitForm = () => {
         loading.value = false
         return
     }
-    // if (!/^\d{17}(\d|X|x)$/.test(ruleForm.username)) {
-    //     ElMessage.error('用户名必须为身份证号');
-    //     console.log('格式出错！');
-    //     loading.value = false;
-    //     return;
-    // }
+    if (!/^\d{17}(\d|X|x)$/.test(ruleForm.username)) {
+        ElMessage.error('用户名必须为身份证号');
+        console.log('格式出错！');
+        loading.value = false;
+        return;
+    }
 
     //发送请求
     axios({
