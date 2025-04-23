@@ -32,7 +32,6 @@
           </template>
           <el-menu-item index="register">账号添加</el-menu-item>
           <el-menu-item index="registerLIst">账户查看</el-menu-item>
-          <el-menu-item index="registerOptions">权限设置</el-menu-item>
         </el-sub-menu>
         <el-menu-item index="user">
           <el-icon>

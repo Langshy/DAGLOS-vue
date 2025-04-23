@@ -1,6 +1,5 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import Home from "./pages/Home.vue"
-import Register from "./pages/register/Register.vue";
 import Archive from "./pages/archives/index.vue";
 import ArchiveAdd from "./pages/archives/add.vue";
 import ArchiveDetails from "./pages/archives/details.vue";
@@ -12,8 +11,6 @@ import userPage from "./pages/user/index.vue";
 const routes = [
     { path: "/", component: Home },
     { path: "/index", component: Home },
-    { path: "/login", component: Home },
-    { path: "/register", component: Register },
     { path: "/Archive/index", component: Archive },
     { path: "/Archive/add", component: ArchiveAdd },
     {

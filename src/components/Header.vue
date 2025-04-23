@@ -18,7 +18,6 @@ const apiUrl = `${import.meta.env.VITE_API_BASE_URL}/action/header/getUserInfoAc
 if (token) {
   axios({
     method:'post',
-    // url:'http://api.daglos.com/action/header/getUserInfoAction.php',
     url: apiUrl,
     data:{
       token: token
