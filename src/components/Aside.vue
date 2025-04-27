@@ -15,30 +15,47 @@
             </el-icon>
             <span>档案管理</span>
           </template>
-          <el-menu-item index="archive">档案总览</el-menu-item>
-          <el-sub-menu index="fileManagement_2">
-            <template #title>档案操作</template>
-            <el-menu-item index="archiveAdd">档案添加</el-menu-item>
-            <el-menu-item index="fileManagement_2_2">添加户籍</el-menu-item>
-            <el-menu-item index="fileManagement_2_3">档案修改</el-menu-item>
+          <el-menu-item index="archives">档案总览</el-menu-item>
+          <el-sub-menu index="archive">
+            <template #title>档案管理</template>
+            <el-menu-item index="archiveImport">档案导入</el-menu-item>
+            <el-menu-item index="archiveExtract">档案导出</el-menu-item>
           </el-sub-menu>
+          <el-menu-item index="correction">档案更正</el-menu-item>
+          <el-menu-item index="statistics">档案统计</el-menu-item>
         </el-sub-menu>
-        <el-sub-menu index="setUp">
+        <el-sub-menu index="policyDocuments">
           <template #title>
             <el-icon>
-              <setting />
+              <Document />
             </el-icon>
-            <span>系统设置</span>
+            <span>政策文件</span>
           </template>
-          <el-menu-item index="register">账号添加</el-menu-item>
-          <el-menu-item index="registerLIst">账户查看</el-menu-item>
+          <el-sub-menu index="projectApprovalDocument">
+            <template #title>项目批复文件</template>
+            <el-menu-item index="projectImport">导入</el-menu-item>
+            <el-menu-item index="projectDelete">删除</el-menu-item>
+          </el-sub-menu>
+          <el-sub-menu index="townlevelSummaryTable">
+            <template #title>乡镇汇总表</template>
+            <el-menu-item index="import">导入</el-menu-item>
+            <el-menu-item index="delete">删除</el-menu-item>
+          </el-sub-menu>
         </el-sub-menu>
-        <el-menu-item index="user">
-          <el-icon>
-            <User />
-          </el-icon>
+        <el-menu-item index="SelfServiceCenter">
+          <el-icon><Operation /></el-icon>
           <span>个人中心</span>
         </el-menu-item>
+        <el-sub-menu index="userManagement">
+          <template #title>
+            <el-icon>
+            <User />
+          </el-icon>
+          <span>用户管理</span>
+          </template>
+          <el-menu-item index="correction">用户列表</el-menu-item>
+          <el-menu-item index="statistics">权限管理</el-menu-item>
+        </el-sub-menu>
       </el-menu>
     </el-col>
   </el-row>

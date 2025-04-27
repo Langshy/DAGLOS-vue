@@ -1,6 +1,6 @@
 <template>
     <el-config-provider :locale="language">
-        <el-row :gutter="24">
+        <el-row :gutter="20">
             <el-col :span="12" :offset="6">
                 <p class="title">用户注册</p>
                 <el-form ref="ruleFormRef" style="width: 650px;margin: auto;" :model="ruleForm" status-icon
@@ -156,16 +156,14 @@ const submitForm = () => {
                 message: response.data.msg,
                 type: 'success',
             })
-            routerChange("/registerList")
+            routerChange('/')
         } else {
             ElMessage.error(response.data.msg)
         }
+        loading.value = false
     }).catch((error) => {
         console.log(error);
-    }).finally(() => {
-        loading.value = false
     })
-
 }
 
 const resetForm = (formEl: FormInstance | undefined) => {
@@ -181,9 +179,9 @@ interface Option {
 }
 const optionsData = ref<Option[]>([
     { key: 101, label: '档案查询', disabled: false },
-    { key: 102, label: '户籍添加', disabled: false },
-    { key: 103, label: '档案修改', disabled: false },
-    { key: 104, label: '用户添加', disabled: false },
+    { key: 102, label: '档案导入', disabled: false },
+    { key: 103, label: '档案导出', disabled: false },
+    { key: 104, label: '档案管理', disabled: false },
 ])
 
 
