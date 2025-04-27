@@ -41,12 +41,11 @@ const handleSelect = (key) => {
   console.log(key)
   switch (key) {
     case 'home':
-      routerChange("/index")
+      routerChange("/")
       break;
     case 'loginOut':
       cookies.remove('login');
-      routerChange("/login")
-      location.reload();
+      window.location.href = '/login';
       break;
     case 'user':
       routerChange("/userPage")

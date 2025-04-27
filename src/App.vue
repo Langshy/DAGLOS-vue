@@ -59,7 +59,7 @@ if (getLogin(loginKey)) {
           <Aside />
         </el-aside>
         <el-container style="background-color: #f6f6f6;">
-          <el-main>
+          <el-main style="padding: 10px;">
             <RouterView></RouterView>
             <!-- <Labels/> -->
           </el-main>
