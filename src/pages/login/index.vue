@@ -2,7 +2,7 @@
     <div class="item-back">
         <el-row :gutter="20">
             <div class="logo">
-                <img src="/public/logo.png" style="height: 150px;margin-top: 20px;margin-left: 20px;">
+                <img src="/logo.png" style="height: 150px;margin-top: 20px;margin-left: 20px;">
             </div>
             <el-col :span="15" :offset="13">
                 <div class="grid-content ep-bg-purple item-box">

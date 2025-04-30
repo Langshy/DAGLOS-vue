@@ -59,7 +59,7 @@ const input = ref('')
 <template>
   <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" :ellipsis="false"
     @select="handleSelect">
-    <el-menu-item index="home"><img src="/public/icon.png" style="width: 30px;margin-right: 10px;"/>被征地农民工档案管理</el-menu-item>
+    <el-menu-item index="home"><img src="/icon.png" style="width: 30px;margin-right: 10px;"/>被征地农民工档案管理</el-menu-item>
     <el-menu-item>
       <el-input v-model="input" style="width: 240px" placeholder="请输姓名或身份证号搜索信息" clearable />
     </el-menu-item>
