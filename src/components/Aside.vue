@@ -15,12 +15,10 @@
             </el-icon>
             <span>档案</span>
           </template>
-          <el-menu-item index="archiveQuery">档案查询</el-menu-item>
           <el-sub-menu index="archiveManagement">
             <template #title>档案管理</template>
-            <el-menu-item index="archiveImport">档案导入</el-menu-item>
-            <el-menu-item index="archiveExtract">档案导出</el-menu-item>
-            <el-menu-item index="archiveCorrection">档案更正</el-menu-item>
+            <el-menu-item index="archiveQuery">档案查询</el-menu-item>
+            <el-menu-item index="archiveAdd">档案导入</el-menu-item>
           </el-sub-menu>
           <el-menu-item index="archiveStatistics">档案统计</el-menu-item>
         </el-sub-menu>
@@ -47,9 +45,9 @@
         <el-sub-menu index="userManagement">
           <template #title>
             <el-icon>
-            <User />
-          </el-icon>
-          <span>用户管理</span>
+              <User />
+            </el-icon>
+            <span>用户管理</span>
           </template>
           <el-menu-item index="userList">用户列表</el-menu-item>
           <el-menu-item index="rightsManagement">权限管理</el-menu-item>
@@ -72,7 +70,7 @@ const handleSelect = (key) => {
   console.log(key)
   switch (key) {
     case 'archiveQuery':
-      routerChange("/archiveQuery")
+      routerChange("/archive/query")
       break;
     case 'archive':
       routerChange("/Archive/index")
